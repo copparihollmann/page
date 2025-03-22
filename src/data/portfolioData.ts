@@ -3,13 +3,13 @@ export const portfolioData = {
   hero: {
     name: "Agustin N. Coppari Hollmann",
     title: "Electrical Engineering Student",
-    description: "A multidisciplinary Electrical Engineering Student passionate about hardware, neuromorphic computing, and innovation."
+    description: "Argentinian Electrical engineering student specializing in neuromorphic computing, embedded systems, and hardware design."
   },
   
   about: {
     paragraphs: [
-      "I'm a multidisciplinary Electrical Engineering student, passionate about the intersection of hardware design and artificial intelligence. With a focus on neuromorphic computing and embedded systems, I strive to bridge the gap between theoretical concepts and practical implementations.",
-      "My experience spans from AI compiler development to FPGA deployments, with a particular interest in brain-inspired computing paradigms. I enjoy tackling complex problems and collaborating with diverse teams to create innovative solutions."
+      "I'm an electrical engineering student with a strong interest in hardware design, neuromorphic computing, and embedded systems. My work focuses on creating practical hardware implementations inspired by biological systems, aiming to bridge theoretical innovation with real-world applications.",
+      "I have experience ranging from FPGA deployments and AI compiler development to analog and digital hardware design. I enjoy collaborating in interdisciplinary teams to tackle challenging problems in innovative ways."
     ]
   },
   
