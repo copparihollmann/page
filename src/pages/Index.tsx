@@ -44,7 +44,7 @@ const Index = () => {
         <Hero 
           name={portfolioData.hero.name}
           title={portfolioData.hero.title}
-          image="/lovable-uploads/98cfbc7b-877a-45e9-a8b1-0d9696294068.png"
+          image="/page/lovable-uploads/98cfbc7b-877a-45e9-a8b1-0d9696294068.png"
         />
         
         <AboutMe />
