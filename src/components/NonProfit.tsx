@@ -52,7 +52,7 @@ const NonProfit = () => {
         subtitle="Making a difference in communities"
       />
       
-      <div className="space-y-0">
+      <div className="space-y-6">
         {nonprofits.map((nonprofit, index) => (
           <ExperienceCard
             key={index}
