@@ -43,33 +43,33 @@ const Index = () => {
         <Hero 
           name="Agustin Nahuel Coppari Hollmann"
           title="Electrical Engineering Student"
-          image="/lovable-uploads/f807af20-35f0-427f-aa55-6ee814760c5b.png"
+          image="/lovable-uploads/98cfbc7b-877a-45e9-a8b1-0d9696294068.png"
         />
         
-        <AboutMe image="/lovable-uploads/f807af20-35f0-427f-aa55-6ee814760c5b.png" />
+        <AboutMe image="/lovable-uploads/98cfbc7b-877a-45e9-a8b1-0d9696294068.png" />
         
         <div className="section">
-          <ExpandableSection title="Experience" number="01" defaultOpen={true}>
+          <ExpandableSection title="Experience" number="01" defaultOpen={false}>
             <Experience />
           </ExpandableSection>
           
-          <ExpandableSection title="Education" number="02">
+          <ExpandableSection title="Education" number="02" defaultOpen={false}>
             <Education />
           </ExpandableSection>
           
-          <ExpandableSection title="Projects" number="03">
+          <ExpandableSection title="Projects" number="03" defaultOpen={false}>
             <Projects />
           </ExpandableSection>
           
-          <ExpandableSection title="Non-Profit" number="04">
+          <ExpandableSection title="Non-Profit" number="04" defaultOpen={false}>
             <NonProfit />
           </ExpandableSection>
           
-          <ExpandableSection title="Events" number="05">
+          <ExpandableSection title="Events" number="05" defaultOpen={false}>
             <Events />
           </ExpandableSection>
           
-          <ExpandableSection title="Recognitions" number="06">
+          <ExpandableSection title="Recognitions" number="06" defaultOpen={false}>
             <Recognitions />
           </ExpandableSection>
         </div>
