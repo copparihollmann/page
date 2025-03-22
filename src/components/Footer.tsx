@@ -1,3 +1,4 @@
+
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -21,13 +22,13 @@ const Footer = () => {
             <h3 className="text-light-brown text-xl uppercase tracking-wider mb-6">Follow</h3>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-silver hover:text-cream transition-colors flex items-center">
+                <a href="https://github.com/copparihollmann" target="_blank" rel="noopener noreferrer" className="text-silver hover:text-cream transition-colors flex items-center">
                   <Github className="w-5 h-5 mr-2" />
                   <span>GitHub</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-silver hover:text-cream transition-colors flex items-center">
+                <a href="https://www.linkedin.com/in/agustin-nahuel-coppari-hollmann/" target="_blank" rel="noopener noreferrer" className="text-silver hover:text-cream transition-colors flex items-center">
                   <Linkedin className="w-5 h-5 mr-2" />
                   <span>LinkedIn</span>
                 </a>

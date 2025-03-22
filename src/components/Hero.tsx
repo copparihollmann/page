@@ -1,5 +1,5 @@
 
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Linkedin } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -36,10 +36,13 @@ const Hero = ({ name, title, image }: HeroProps) => {
               
               <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
                 <a 
-                  href="#projects" 
+                  href="https://www.linkedin.com/in/agustin-nahuel-coppari-hollmann/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center border border-light-brown text-light-brown px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-light-brown/10 transition-colors"
                 >
-                  Explore my work
+                  <Linkedin className="w-5 h-5 mr-2" />
+                  Connect on LinkedIn
                 </a>
               </div>
             </div>
