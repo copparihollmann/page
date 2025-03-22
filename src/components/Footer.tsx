@@ -1,13 +1,12 @@
-
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-dark-green py-12 px-6 border-t border-light-brown/20">
+    <footer className="bg-dark-green py-8 sm:py-12 px-4 sm:px-6 border-t border-light-brown/20">
       <div className="max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
           <div className="border-b md:border-b-0 pb-8 md:pb-0">
             <h3 className="text-light-brown text-xl uppercase tracking-wider mb-6">Explore</h3>
             <ul className="space-y-4">
@@ -53,13 +52,13 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-silver/70 text-sm mb-4 md:mb-0">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-silver/70 text-sm text-center md:text-left">
             &copy; {currentYear} Agustin Coppari. All rights reserved.
           </p>
           
           <div className="flex items-center">
-            <span className="text-3xl md:text-4xl font-display text-light-brown transform -rotate-90 md:rotate-0">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-display text-light-brown md:transform md:-rotate-90 md:rotate-0">
               Agustin
             </span>
           </div>
