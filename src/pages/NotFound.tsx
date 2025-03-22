@@ -21,7 +21,7 @@ const NotFound = () => {
           The page you're looking for can't be found.
         </p>
         <a 
-          href="/" 
+          href="/page" 
           className="btn-primary inline-flex items-center animate-fade-in"
           style={{ animationDelay: '0.4s' }}
         >
