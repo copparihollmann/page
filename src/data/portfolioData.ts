@@ -3,7 +3,7 @@ export const portfolioData = {
   hero: {
     name: "Agustin N. Coppari Hollmann",
     title: "Electrical Engineering Student",
-    description: "Argentinian Electrical engineering student specializing in neuromorphic computing, embedded systems, and hardware design."
+    description: "Electrical Engineering student specializing in AI Compilers, embedded systems, and hardware design."
   },
   
   about: {
