@@ -1,11 +1,19 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const isMobile = useIsMobile();
   
   const sections = [
     { id: 'home', label: 'Home' },
@@ -74,14 +82,56 @@ const Header = () => {
           </a>
         </div>
         
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden z-50 text-cream hover:text-light-brown focus:outline-none"
-          onClick={handleMenuToggle}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile menu button - used with Drawer for better mobile UX */}
+        {isMobile ? (
+          <Drawer>
+            <DrawerTrigger asChild>
+              <button 
+                className="text-cream hover:text-light-brown focus:outline-none"
+                aria-label="Open menu"
+              >
+                <Menu size={24} />
+              </button>
+            </DrawerTrigger>
+            <DrawerContent className="bg-dark-green border-t border-dark-olive h-[80vh]">
+              <nav className="flex flex-col h-full pt-6 pb-10">
+                <div className="px-6 mb-6 flex justify-end">
+                  <DrawerClose asChild>
+                    <button 
+                      className="text-cream hover:text-light-brown focus:outline-none"
+                      aria-label="Close menu"
+                    >
+                      <X size={24} />
+                    </button>
+                  </DrawerClose>
+                </div>
+                <ul className="flex flex-col items-center space-y-6 px-6 overflow-y-auto">
+                  {sections.map((section) => (
+                    <li key={section.id} className="w-full text-center">
+                      <DrawerClose asChild>
+                        <a
+                          href={`#${section.id}`}
+                          className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
+                          onClick={() => setActiveSection(section.id)}
+                        >
+                          {section.label}
+                        </a>
+                      </DrawerClose>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </DrawerContent>
+          </Drawer>
+        ) : (
+          <button 
+            className="md:hidden z-50 text-cream hover:text-light-brown focus:outline-none"
+            onClick={handleMenuToggle}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        )}
         
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
@@ -100,28 +150,30 @@ const Header = () => {
           </ul>
         </nav>
         
-        {/* Mobile Navigation */}
-        <div 
-          className={`md:hidden fixed inset-0 bg-dark-green bg-opacity-95 backdrop-blur-md transition-all duration-300 flex items-center justify-center
-                    ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-          style={{ zIndex: 40 }}
-        >
-          <nav className="w-full max-h-[100vh] overflow-y-auto py-20 px-6">
-            <ul className="flex flex-col items-center space-y-6">
-              {sections.map((section) => (
-                <li key={section.id} className="w-full text-center">
-                  <a
-                    href={`#${section.id}`}
-                    className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
-                    onClick={() => handleNavClick(section.id)}
-                  >
-                    {section.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        {/* Legacy Mobile Navigation - will be removed once drawer is confirmed working */}
+        {!isMobile && (
+          <div 
+            className={`md:hidden fixed inset-0 bg-dark-green bg-opacity-95 backdrop-blur-md transition-all duration-300 flex items-center justify-center
+                      ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+            style={{ zIndex: 40 }}
+          >
+            <nav className="w-full max-h-[100vh] overflow-y-auto py-20 px-6">
+              <ul className="flex flex-col items-center space-y-6">
+                {sections.map((section) => (
+                  <li key={section.id} className="w-full text-center">
+                    <a
+                      href={`#${section.id}`}
+                      className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
+                      onClick={() => handleNavClick(section.id)}
+                    >
+                      {section.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
