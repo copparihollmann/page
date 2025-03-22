@@ -70,7 +70,7 @@ const Experience = () => {
         subtitle="My professional journey in tech and research"
       />
       
-      <div className="space-y-0">
+      <div className="space-y-6">
         {experiences.map((experience, index) => (
           <ExperienceCard
             key={index}
