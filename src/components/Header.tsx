@@ -102,10 +102,11 @@ const Header = () => {
         
         {/* Mobile Navigation */}
         <div 
-          className={`md:hidden fixed inset-0 bg-dark-green/95 backdrop-blur-md transition-all duration-300 flex items-center justify-center
-                    ${isMenuOpen ? 'opacity-100 z-40' : 'opacity-0 -z-10 pointer-events-none'}`}
+          className={`md:hidden fixed inset-0 bg-dark-green bg-opacity-95 backdrop-blur-md transition-all duration-300 flex items-center justify-center
+                    ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+          style={{ zIndex: 40 }}
         >
-          <nav className="w-full max-h-screen overflow-auto py-20">
+          <nav className="w-full max-h-[100vh] overflow-y-auto py-20 px-6">
             <ul className="flex flex-col items-center space-y-6">
               {sections.map((section) => (
                 <li key={section.id} className="w-full text-center">
