@@ -1,12 +1,58 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Experience from '@/components/Experience';
+import Education from '@/components/Education';
+import Projects from '@/components/Projects';
+import NonProfit from '@/components/NonProfit';
+import Events from '@/components/Events';
+import Recognitions from '@/components/Recognitions';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  // Reveal animation for sections
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all elements with reveal class
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+    
+    return () => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        observer.unobserve(el);
+      });
+    };
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-bg-green text-cream">
+      <Header />
+      
+      <main>
+        <Hero 
+          name="Agustin Coppari"
+          title="Electrical Engineering Student"
+          image="/lovable-uploads/f807af20-35f0-427f-aa55-6ee814760c5b.png"
+        />
+        
+        <Experience />
+        <Education />
+        <Projects />
+        <NonProfit />
+        <Events />
+        <Recognitions />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
