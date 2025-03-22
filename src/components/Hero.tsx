@@ -1,7 +1,8 @@
 
-import { ArrowDown, Linkedin } from 'lucide-react';
+import { ArrowDown, Linkedin, Mail, Copy } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { portfolioData } from '@/data/portfolioData';
+import { useToast } from '@/hooks/use-toast';
 
 interface HeroProps {
   name: string;
@@ -11,6 +12,24 @@ interface HeroProps {
 
 const Hero = ({ name, title, image }: HeroProps) => {
   const { description } = portfolioData.hero;
+  const { toast } = useToast();
+  
+  const copyEmail = () => {
+    navigator.clipboard.writeText('copparihollmann@gmail.com')
+      .then(() => {
+        toast({
+          title: "Email copied!",
+          description: "Email address copied to clipboard",
+        });
+      })
+      .catch(() => {
+        toast({
+          title: "Failed to copy",
+          description: "Please try again or copy manually",
+          variant: "destructive",
+        });
+      });
+  };
   
   return (
     <section id="home" className="min-h-screen flex items-center pt-12 sm:pt-20 px-4 sm:px-6 relative overflow-hidden">
@@ -34,7 +53,7 @@ const Hero = ({ name, title, image }: HeroProps) => {
                 {description}
               </p>
               
-              <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="space-y-3 sm:space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                 <a 
                   href="https://www.linkedin.com/in/agustin-nahuel-coppari-hollmann/" 
                   target="_blank"
@@ -44,6 +63,17 @@ const Hero = ({ name, title, image }: HeroProps) => {
                   <Linkedin className="w-5 h-5 mr-2" />
                   Connect on LinkedIn
                 </a>
+                
+                <div>
+                  <button 
+                    onClick={copyEmail}
+                    className="inline-flex items-center border border-light-brown text-light-brown px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-light-brown/10 transition-colors"
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    <span className="mr-1">copparihollmann@gmail.com</span>
+                    <Copy className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

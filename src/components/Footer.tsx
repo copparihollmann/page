@@ -40,9 +40,9 @@ const Footer = () => {
             <h3 className="text-light-brown text-xl uppercase tracking-wider mb-6">Get in Touch</h3>
             <ul className="space-y-4">
               <li>
-                <a href="mailto:example@example.com" className="text-silver hover:text-cream transition-colors flex items-center">
+                <a href="mailto:copparihollmann@gmail.com" className="text-silver hover:text-cream transition-colors flex items-center">
                   <Mail className="w-5 h-5 mr-2" />
-                  <span>Email me</span>
+                  <span>copparihollmann@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start">
