@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Link } from 'react-router-dom';
 import {
   Drawer,
   DrawerClose,
@@ -70,6 +71,13 @@ const Header = () => {
     };
   }, []);
   
+  // Function to create hash links that work with the router
+  const HashLink = ({ to, children, className, onClick }: { to: string, children: React.ReactNode, className?: string, onClick?: () => void }) => (
+    <a href={to} className={className} onClick={onClick}>
+      {children}
+    </a>
+  );
+  
   return (
     <header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 py-4 px-6 md:px-12 
@@ -77,9 +85,9 @@ const Header = () => {
     >
       <div className="max-w-[1440px] mx-auto flex justify-between items-center">
         <div className="z-10">
-          <a href="#home" className="text-2xl font-display text-cream hover:text-light-brown transition-colors">
+          <HashLink to="#home" className="text-2xl font-display text-cream hover:text-light-brown transition-colors">
             Agustin<span className="text-light-brown">.</span>
-          </a>
+          </HashLink>
         </div>
         
         {/* Mobile menu button - used with Drawer for better mobile UX */}
@@ -109,13 +117,13 @@ const Header = () => {
                   {sections.map((section) => (
                     <li key={section.id} className="w-full text-center">
                       <DrawerClose asChild>
-                        <a
-                          href={`#${section.id}`}
+                        <HashLink
+                          to={`#${section.id}`}
                           className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
                           onClick={() => setActiveSection(section.id)}
                         >
                           {section.label}
-                        </a>
+                        </HashLink>
                       </DrawerClose>
                     </li>
                   ))}
@@ -138,13 +146,13 @@ const Header = () => {
           <ul className="flex space-x-1">
             {sections.map((section) => (
               <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
+                <HashLink
+                  to={`#${section.id}`}
                   className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
                   onClick={() => handleNavClick(section.id)}
                 >
                   {section.label}
-                </a>
+                </HashLink>
               </li>
             ))}
           </ul>
@@ -161,13 +169,13 @@ const Header = () => {
               <ul className="flex flex-col items-center space-y-6">
                 {sections.map((section) => (
                   <li key={section.id} className="w-full text-center">
-                    <a
-                      href={`#${section.id}`}
+                    <HashLink
+                      to={`#${section.id}`}
                       className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
                       onClick={() => handleNavClick(section.id)}
                     >
                       {section.label}
-                    </a>
+                    </HashLink>
                   </li>
                 ))}
               </ul>

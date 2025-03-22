@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 
@@ -20,14 +20,14 @@ const NotFound = () => {
         <p className="text-2xl text-cream mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           The page you're looking for can't be found.
         </p>
-        <a 
-          href="/page" 
+        <Link 
+          to="/" 
           className="btn-primary inline-flex items-center animate-fade-in"
           style={{ animationDelay: '0.4s' }}
         >
           <ArrowLeft className="mr-2" size={18} />
           Return to Home
-        </a>
+        </Link>
       </div>
     </div>
   );
