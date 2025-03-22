@@ -1,47 +1,20 @@
 
 import SectionTitle from './SectionTitle';
 import { GraduationCap, Globe } from 'lucide-react';
+import { portfolioData } from '@/data/portfolioData';
 
 const Education = () => {
-  const education = [
-    {
-      institution: "TU Munich",
-      degree: "M.Sc. in Electrical Engineering",
-      period: "May 2024 - Present",
-      location: "Munich, Germany",
-      grade: "Provisional Grade: 1.5 | 58 ECTS"
-    },
-    {
-      institution: "CDTM (TUM & LMU)",
-      degree: "Honors Degree in Management Technology",
-      period: "August 2024 - Present",
-      location: "Munich, Germany",
-      grade: "Provisional Grade: 1.1 | 8 ECTS"
-    },
-    {
-      institution: "TU Munich",
-      degree: "B.Sc. in Electrical Engineering",
-      period: "October 2020 - May 2024",
-      location: "Munich, Germany",
-      grade: "Grade: 1.8 | 180 ECTS"
-    }
-  ];
-
-  const languages = [
-    { language: "Spanish", level: "Mother Tongue" },
-    { language: "English", level: "C1" },
-    { language: "German", level: "C1" }
-  ];
+  const { title, subtitle, items, languages } = portfolioData.education;
 
   return (
     <section id="education" className="section">
       <SectionTitle 
-        title="Education" 
-        subtitle="Academic background and qualifications"
+        title={title} 
+        subtitle={subtitle}
       />
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {education.map((item, index) => (
+        {items.map((item, index) => (
           <div 
             key={index} 
             className="bg-dark-green/30 rounded-lg p-6 border border-cream/10 hover:border-light-brown/30 transition-all duration-300 animate-fade-in"

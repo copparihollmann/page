@@ -1,27 +1,16 @@
 
 import SectionTitle from './SectionTitle';
 import { CalendarDays, Users, Mic, Calendar } from 'lucide-react';
+import { portfolioData } from '@/data/portfolioData';
 
 const Events = () => {
-  const organizedEvents = [
-    "ASIP Designer Hackathon by neuroTUM with support from Synopsys Inc. and TUM — 05/2024",
-    "Neurotechnology seminar by neuroTUM with Prof. Simon Jacob — 05/2023"
-  ];
-
-  const speakerEvents = [
-    "Future of Compute - Presenting neuroTUM e.V. - 05/2024"
-  ];
-
-  const volunteerEvents = [
-    "Future of Computing Conference - Unternehmertum — 12/2024",
-    "RISC-V Summit Europe 2024 — 05/2024"
-  ];
+  const { title, subtitle, organized, speaker, volunteer } = portfolioData.events;
 
   return (
     <section id="events" className="section bg-dark-green/30">
       <SectionTitle 
-        title="Events" 
-        subtitle="Organized events, speaking engagements, and volunteering"
+        title={title} 
+        subtitle={subtitle}
       />
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -34,7 +23,7 @@ const Events = () => {
           </div>
           
           <ul className="space-y-4">
-            {organizedEvents.map((event, index) => (
+            {organized.map((event, index) => (
               <li key={index} className="bg-dark-olive/30 p-4 rounded-md border border-cream/5">
                 <p className="text-cream">{event}</p>
               </li>
@@ -51,7 +40,7 @@ const Events = () => {
           </div>
           
           <ul className="space-y-4">
-            {speakerEvents.map((event, index) => (
+            {speaker.map((event, index) => (
               <li key={index} className="bg-dark-olive/30 p-4 rounded-md border border-cream/5">
                 <p className="text-cream">{event}</p>
               </li>
@@ -68,7 +57,7 @@ const Events = () => {
           </div>
           
           <ul className="space-y-4">
-            {volunteerEvents.map((event, index) => (
+            {volunteer.map((event, index) => (
               <li key={index} className="bg-dark-olive/30 p-4 rounded-md border border-cream/5">
                 <p className="text-cream">{event}</p>
               </li>

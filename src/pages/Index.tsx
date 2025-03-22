@@ -11,6 +11,7 @@ import Events from '@/components/Events';
 import Recognitions from '@/components/Recognitions';
 import ExpandableSection from '@/components/ExpandableSection';
 import Footer from '@/components/Footer';
+import { portfolioData } from '@/data/portfolioData';
 
 const Index = () => {
   // Reveal animation for sections
@@ -41,8 +42,8 @@ const Index = () => {
       
       <main>
         <Hero 
-          name="Agustin N. Coppari Hollmann"
-          title="Electrical Engineering Student"
+          name={portfolioData.hero.name}
+          title={portfolioData.hero.title}
           image="/lovable-uploads/98cfbc7b-877a-45e9-a8b1-0d9696294068.png"
         />
         

@@ -1,5 +1,7 @@
+
 import { ArrowDown } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { portfolioData } from '@/data/portfolioData';
 
 interface HeroProps {
   name: string;
@@ -8,6 +10,8 @@ interface HeroProps {
 }
 
 const Hero = ({ name, title, image }: HeroProps) => {
+  const { description } = portfolioData.hero;
+  
   return (
     <section id="home" className="min-h-screen flex items-center pt-12 sm:pt-20 px-4 sm:px-6 relative overflow-hidden">
       
@@ -27,7 +31,7 @@ const Hero = ({ name, title, image }: HeroProps) => {
             
             <div className="max-w-xl">
               <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-light-brown mb-6 sm:mb-8 animate-fade-in">
-                A multidisciplinary Electrical Engineering Student passionate about hardware, neuromorphic computing, and innovation.
+                {description}
               </p>
               
               <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
