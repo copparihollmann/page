@@ -1,5 +1,6 @@
 
 import { ArrowDown } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 interface HeroProps {
   name: string;
@@ -21,7 +22,7 @@ const Hero = ({ name, title, image }: HeroProps) => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="max-w-5xl mb-10 md:mb-0">
             <h1 className="text-7xl sm:text-8xl md:text-9xl font-display mb-8 leading-tight animate-fade-in-slow text-cream">
-              Agustin <br /> Nahuel <br /> Coppari <br /> Hollmann
+              Agustin N. <br /> Coppari <br /> Hollmann
             </h1>
             
             <div className="max-w-xl">
@@ -38,15 +39,15 @@ const Hero = ({ name, title, image }: HeroProps) => {
           </div>
           
           {image && (
-            <div className="w-full md:w-1/3 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <div className="relative overflow-hidden rounded-xl aspect-square">
-                <img 
+            <div className="w-full md:w-1/3 animate-fade-in flex justify-center md:justify-end" style={{ animationDelay: '0.6s' }}>
+              <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-light-brown overflow-hidden">
+                <AvatarImage 
                   src={image} 
-                  alt="Agustin Nahuel Coppari Hollmann" 
-                  className="object-cover w-full h-full"
+                  alt="Agustin N. Coppari Hollmann" 
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-green/40 to-transparent"></div>
-              </div>
+                <AvatarFallback className="text-5xl text-light-brown bg-warm-brown/20">A</AvatarFallback>
+              </Avatar>
             </div>
           )}
         </div>

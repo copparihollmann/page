@@ -41,7 +41,7 @@ const Index = () => {
       
       <main>
         <Hero 
-          name="Agustin Nahuel Coppari Hollmann"
+          name="Agustin N. Coppari Hollmann"
           title="Electrical Engineering Student"
           image="/lovable-uploads/98cfbc7b-877a-45e9-a8b1-0d9696294068.png"
         />
