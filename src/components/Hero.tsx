@@ -1,4 +1,3 @@
-
 import { ArrowDown } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
@@ -11,6 +10,7 @@ interface HeroProps {
 const Hero = ({ name, title, image }: HeroProps) => {
   return (
     <section id="home" className="min-h-screen flex items-center pt-12 sm:pt-20 px-4 sm:px-6 relative overflow-hidden">
+      
       <div 
         className="absolute inset-0 bg-dark-green opacity-50"
         style={{
@@ -31,7 +31,10 @@ const Hero = ({ name, title, image }: HeroProps) => {
               </p>
               
               <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <a href="#experience" className="inline-flex items-center border border-light-brown text-light-brown px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-light-brown/10 transition-colors">
+                <a 
+                  href="#projects" 
+                  className="inline-flex items-center border border-light-brown text-light-brown px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-light-brown/10 transition-colors"
+                >
                   Explore my work
                 </a>
               </div>
@@ -67,4 +70,3 @@ const Hero = ({ name, title, image }: HeroProps) => {
 };
 
 export default Hero;
-
