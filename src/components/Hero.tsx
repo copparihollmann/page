@@ -45,7 +45,7 @@ const Hero = ({ name, title, image }: HeroProps) => {
                   alt="Agustin Nahuel Coppari Hollmann" 
                   className="object-cover w-full h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-green/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-green/40 to-transparent"></div>
               </div>
             </div>
           )}
