@@ -32,9 +32,9 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   };
 
   return (
-    <div className={cn('mb-16 relative', alignmentClasses[textAlign], className)}>
+    <div className={cn('mb-12 relative', alignmentClasses[textAlign], className)}>
       {number && (
-        <span className="text-light-brown/60 text-base md:text-xl font-medium absolute -left-8 top-4 md:top-2">
+        <span className="text-light-brown/60 text-base md:text-xl font-medium absolute -left-4 md:-left-8 top-4 md:top-2">
           {number}
         </span>
       )}

@@ -49,7 +49,7 @@ const Index = () => {
         
         <AboutMe />
         
-        <div className="section">
+        <div className="section pt-4 md:pt-8">
           <ExpandableSection title="Experience" number="01" defaultOpen={false}>
             <Experience />
           </ExpandableSection>

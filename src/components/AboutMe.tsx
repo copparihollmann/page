@@ -7,7 +7,7 @@ const AboutMe: React.FC = () => {
   const { paragraphs } = portfolioData.about;
   
   return (
-    <section id="about" className="section bg-dark-green/30">
+    <section id="about" className="section bg-dark-green/30 pb-8 md:pb-12">
       <SectionTitle 
         title="About Me" 
         titleSize="large"
