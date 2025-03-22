@@ -2,12 +2,14 @@
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import AboutMe from '@/components/AboutMe';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Projects from '@/components/Projects';
 import NonProfit from '@/components/NonProfit';
 import Events from '@/components/Events';
 import Recognitions from '@/components/Recognitions';
+import ExpandableSection from '@/components/ExpandableSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -44,12 +46,33 @@ const Index = () => {
           image="/lovable-uploads/f807af20-35f0-427f-aa55-6ee814760c5b.png"
         />
         
-        <Experience />
-        <Education />
-        <Projects />
-        <NonProfit />
-        <Events />
-        <Recognitions />
+        <AboutMe image="/lovable-uploads/f807af20-35f0-427f-aa55-6ee814760c5b.png" />
+        
+        <div className="section">
+          <ExpandableSection title="Experience" number="01" defaultOpen={true}>
+            <Experience />
+          </ExpandableSection>
+          
+          <ExpandableSection title="Education" number="02">
+            <Education />
+          </ExpandableSection>
+          
+          <ExpandableSection title="Projects" number="03">
+            <Projects />
+          </ExpandableSection>
+          
+          <ExpandableSection title="Non-Profit" number="04">
+            <NonProfit />
+          </ExpandableSection>
+          
+          <ExpandableSection title="Events" number="05">
+            <Events />
+          </ExpandableSection>
+          
+          <ExpandableSection title="Recognitions" number="06">
+            <Recognitions />
+          </ExpandableSection>
+        </div>
       </main>
       
       <Footer />

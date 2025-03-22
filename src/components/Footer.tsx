@@ -5,41 +5,64 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-dark-green py-12 px-6">
+    <footer className="bg-dark-green py-12 px-6 border-t border-light-brown/20">
       <div className="max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div>
-            <h3 className="text-2xl font-display text-light-brown mb-4">Agustin Coppari</h3>
-            <p className="text-silver mb-4">Electrical Engineering Student specialized in AI hardware and embedded systems.</p>
-            <div className="flex items-center text-silver">
-              <MapPin size={16} className="mr-2 text-light-brown" />
-              <span>Munich, Germany</span>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="border-b md:border-b-0 pb-8 md:pb-0">
+            <h3 className="text-light-brown text-xl uppercase tracking-wider mb-6">Explore</h3>
+            <ul className="space-y-4">
+              <li><a href="#experience" className="text-silver hover:text-cream transition-colors">Experience</a></li>
+              <li><a href="#education" className="text-silver hover:text-cream transition-colors">Education</a></li>
+              <li><a href="#projects" className="text-silver hover:text-cream transition-colors">Projects</a></li>
+              <li><a href="#nonprofit" className="text-silver hover:text-cream transition-colors">Non-Profit</a></li>
+            </ul>
           </div>
           
-          <div className="md:col-span-2 md:pl-12">
-            <h3 className="text-xl font-display text-light-brown mb-4">Connect With Me</h3>
-            <div className="flex flex-wrap gap-6">
-              <a href="#" className="flex items-center text-silver hover:text-cream transition-colors">
-                <Github size={20} className="mr-2" />
-                <span>GitHub</span>
-              </a>
-              <a href="#" className="flex items-center text-silver hover:text-cream transition-colors">
-                <Linkedin size={20} className="mr-2" />
-                <span>LinkedIn</span>
-              </a>
-              <a href="mailto:example@example.com" className="flex items-center text-silver hover:text-cream transition-colors">
-                <Mail size={20} className="mr-2" />
-                <span>Email</span>
-              </a>
-            </div>
+          <div className="border-b md:border-b-0 pb-8 md:pb-0">
+            <h3 className="text-light-brown text-xl uppercase tracking-wider mb-6">Follow</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="#" className="text-silver hover:text-cream transition-colors flex items-center">
+                  <Github className="w-5 h-5 mr-2" />
+                  <span>GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-silver hover:text-cream transition-colors flex items-center">
+                  <Linkedin className="w-5 h-5 mr-2" />
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-light-brown text-xl uppercase tracking-wider mb-6">Get in Touch</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="mailto:example@example.com" className="text-silver hover:text-cream transition-colors flex items-center">
+                  <Mail className="w-5 h-5 mr-2" />
+                  <span>Email me</span>
+                </a>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="w-5 h-5 mr-2 text-silver mt-1" />
+                <span className="text-silver">Munich, Germany</span>
+              </li>
+            </ul>
           </div>
         </div>
         
-        <div className="pt-6 border-t border-cream/10 text-center">
-          <p className="text-silver/70 text-sm">
+        <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-silver/70 text-sm mb-4 md:mb-0">
             &copy; {currentYear} Agustin Coppari. All rights reserved.
           </p>
+          
+          <div className="flex items-center">
+            <span className="text-3xl md:text-4xl font-display text-light-brown transform -rotate-90 md:rotate-0">
+              Agustin
+            </span>
+          </div>
         </div>
       </div>
     </footer>
