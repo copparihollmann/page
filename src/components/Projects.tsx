@@ -1,7 +1,7 @@
 
 import React from 'react';
 import SectionTitle from './SectionTitle';
-import { Code, Box } from 'lucide-react';
+import { Code } from 'lucide-react';
 
 const ProjectCard = ({ title, role, technology, period, location, description, index }: {
   title: string;
@@ -45,7 +45,7 @@ const ProjectCard = ({ title, role, technology, period, location, description, i
 };
 
 const Projects = () => {
-  const projects = [
+  const allProjects = [
     {
       title: "Comparison Tool for RISC-V extensions",
       role: "Neo4j, React.js and Go",
@@ -105,10 +105,7 @@ const Projects = () => {
       description: [
         "Implementation of SRAM in Analog, as well as Hyper-dimensional Computing cells that were used to classify the language of different texts."
       ]
-    }
-  ];
-
-  const additionalProjects = [
+    },
     {
       title: "Continual Learning Prototypes with Lava on Intel Loihi",
       role: "Matlab, Python",
@@ -134,12 +131,12 @@ const Projects = () => {
   return (
     <section id="projects" className="section bg-dark-green/30">
       <SectionTitle 
-        title="Latest Projects" 
-        subtitle="Recent technical work and research"
+        title="Projects" 
+        subtitle="Technical work and research initiatives"
       />
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
+        {allProjects.map((project, index) => (
           <ProjectCard
             key={index}
             title={project.title}
@@ -151,25 +148,6 @@ const Projects = () => {
             index={index}
           />
         ))}
-      </div>
-      
-      <div className="mt-12">
-        <h3 className="text-2xl font-display text-light-brown mb-6">Additional Projects</h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {additionalProjects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              role={project.role}
-              technology={project.technology}
-              period={project.period}
-              location={project.location}
-              description={project.description}
-              index={index + projects.length}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

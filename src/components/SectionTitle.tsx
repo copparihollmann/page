@@ -30,7 +30,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   };
 
   return (
-    <div className={cn('mb-12', alignmentClasses[textAlign], className)}>
+    <div className={cn('mb-16', alignmentClasses[textAlign], className)}>
       <h2 
         className={cn(
           'font-display mb-2 text-light-brown animate-fade-in-slow',

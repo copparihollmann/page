@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero = ({ name, title, image }: HeroProps) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center py-20 px-6 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
       <div 
         className="absolute inset-0 bg-dark-green opacity-50"
         style={{
@@ -17,42 +17,22 @@ const Hero = ({ name, title, image }: HeroProps) => {
         }}
       />
       
-      <div className="max-w-[1440px] w-full mx-auto z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="lg:order-2 flex justify-center animate-fade-in-slow">
-          {image ? (
-            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-light-brown shadow-xl relative">
-              <img 
-                src={image} 
-                alt={name} 
-                className="object-cover w-full h-full"
-              />
-            </div>
-          ) : (
-            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-dark-olive border-4 border-light-brown flex items-center justify-center text-9xl font-display text-cream">
-              {name.charAt(0)}
-            </div>
-          )}
-        </div>
-        
-        <div className="lg:order-1 text-center lg:text-left">
-          <span className="inline-block px-4 py-2 bg-dark-olive text-cream rounded-full text-sm mb-6 animate-fade-in-slow">
-            Hello, I'm
-          </span>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-display mb-6 animate-fade-in" style={{ lineHeight: '1.1' }}>
-            {name.split(' ').map((namePart, idx) => (
-              <span key={idx} className="block">
-                {namePart} {idx === 0 && <span className="text-light-brown">.</span>}
-              </span>
-            ))}
+      <div className="container mx-auto z-10">
+        <div className="max-w-5xl">
+          <h1 className="text-7xl sm:text-8xl md:text-9xl font-display mb-8 leading-tight animate-fade-in-slow text-cream">
+            Agustin <br /> Coppari
           </h1>
-          <p className="text-xl sm:text-2xl text-silver mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            {title}
-          </p>
-          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <a href="#experience" className="btn-primary animate-float">
-              Explore my work
-              <ArrowDown className="ml-2" size={18} />
-            </a>
+          
+          <div className="max-w-xl">
+            <p className="text-xl sm:text-2xl md:text-3xl text-light-brown mb-8 animate-fade-in">
+              A multidisciplinary Electrical Engineering Student passionate about hardware, neuromorphic computing, and innovation.
+            </p>
+            
+            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <a href="#experience" className="inline-flex items-center border border-light-brown text-light-brown px-8 py-3 rounded-full hover:bg-light-brown/10 transition-colors">
+                Explore my work
+              </a>
+            </div>
           </div>
         </div>
       </div>
