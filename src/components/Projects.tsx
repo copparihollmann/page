@@ -1,6 +1,5 @@
 
 import React from 'react';
-import SectionTitle from './SectionTitle';
 import { Code } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -46,30 +45,23 @@ const ProjectCard = ({ title, role, technology, period, location, description, i
 };
 
 const Projects = () => {
-  const { title, subtitle, items } = portfolioData.projects;
+  const { items } = portfolioData.projects;
 
   return (
-    <section id="projects" className="section bg-dark-green/30">
-      <SectionTitle 
-        title={title} 
-        subtitle={subtitle}
-      />
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((project, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            role={project.role}
-            technology={project.technology}
-            period={project.period}
-            location={project.location}
-            description={project.description}
-            index={index}
-          />
-        ))}
-      </div>
-    </section>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {items.map((project, index) => (
+        <ProjectCard
+          key={index}
+          title={project.title}
+          role={project.role}
+          technology={project.technology}
+          period={project.period}
+          location={project.location}
+          description={project.description}
+          index={index}
+        />
+      ))}
+    </div>
   );
 };
 

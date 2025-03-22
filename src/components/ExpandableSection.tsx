@@ -40,7 +40,7 @@ const ExpandableSection: React.FC<ExpandableSectionProps> = ({
             )} 
           />
         </CollapsibleTrigger>
-        <CollapsibleContent className="pt-6 md:pt-8 pl-0 md:pl-12">
+        <CollapsibleContent className="pt-10 md:pt-12 pl-0 md:pl-12">
           {children}
         </CollapsibleContent>
       </Collapsible>

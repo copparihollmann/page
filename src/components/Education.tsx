@@ -1,18 +1,12 @@
 
-import SectionTitle from './SectionTitle';
 import { GraduationCap, Globe } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
 
 const Education = () => {
-  const { title, subtitle, items, languages } = portfolioData.education;
+  const { items, languages } = portfolioData.education;
 
   return (
-    <section id="education" className="section">
-      <SectionTitle 
-        title={title} 
-        subtitle={subtitle}
-      />
-      
+    <div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {items.map((item, index) => (
           <div 
@@ -62,7 +56,7 @@ const Education = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
