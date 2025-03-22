@@ -40,12 +40,27 @@ const Header = () => {
   
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Prevent body scroll when menu is open
+    if (!isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   };
   
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
     setIsMenuOpen(false);
+    // Re-enable scrolling when nav item is clicked
+    document.body.style.overflow = '';
   };
+  
+  // Clean up overflow style on unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
   
   return (
     <header 
@@ -61,7 +76,7 @@ const Header = () => {
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden z-20 text-cream hover:text-light-brown focus:outline-none"
+          className="md:hidden z-50 text-cream hover:text-light-brown focus:outline-none"
           onClick={handleMenuToggle}
           aria-label="Toggle menu"
         >
@@ -88,9 +103,9 @@ const Header = () => {
         {/* Mobile Navigation */}
         <div 
           className={`md:hidden fixed inset-0 bg-dark-green/95 backdrop-blur-md transition-all duration-300 flex items-center justify-center
-                    ${isMenuOpen ? 'opacity-100 z-10' : 'opacity-0 -z-10'}`}
+                    ${isMenuOpen ? 'opacity-100 z-40' : 'opacity-0 -z-10 pointer-events-none'}`}
         >
-          <nav className="w-full">
+          <nav className="w-full max-h-screen overflow-auto py-20">
             <ul className="flex flex-col items-center space-y-6">
               {sections.map((section) => (
                 <li key={section.id} className="w-full text-center">
