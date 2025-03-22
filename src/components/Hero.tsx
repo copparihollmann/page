@@ -1,17 +1,18 @@
 
+import React from 'react';
 import { ArrowDown, Linkedin, Mail, Copy } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { portfolioData } from '@/data/portfolioData';
 import { useToast } from '@/hooks/use-toast';
 
 interface HeroProps {
-  name: string;
-  title: string;
+  name?: string;
+  title?: string;
   image?: string;
 }
 
-const Hero = ({ name, title, image }: HeroProps) => {
-  const { description } = portfolioData.hero;
+const Hero = ({ image }: HeroProps) => {
+  const { name, title, description } = portfolioData.hero;
   const { toast } = useToast();
   
   const copyEmail = () => {
@@ -45,7 +46,7 @@ const Hero = ({ name, title, image }: HeroProps) => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="max-w-5xl mb-8 sm:mb-10 md:mb-0">
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display mb-6 sm:mb-8 leading-tight animate-fade-in-slow text-cream">
-              Agustin N. <br /> Coppari <br /> Hollmann
+              {name}
             </h1>
             
             <div className="max-w-xl">
@@ -83,10 +84,12 @@ const Hero = ({ name, title, image }: HeroProps) => {
               <Avatar className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full border-4 border-light-brown overflow-hidden">
                 <AvatarImage 
                   src={image} 
-                  alt="Agustin N. Coppari Hollmann" 
+                  alt={name} 
                   className="object-cover"
                 />
-                <AvatarFallback className="text-5xl text-light-brown bg-warm-brown/20">A</AvatarFallback>
+                <AvatarFallback className="text-5xl text-light-brown bg-warm-brown/20">
+                  {name.charAt(0)}
+                </AvatarFallback>
               </Avatar>
             </div>
           )}
@@ -95,7 +98,7 @@ const Hero = ({ name, title, image }: HeroProps) => {
       
       <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 flex justify-center">
         <a 
-          href="#experience" 
+          href="#about" 
           className="animate-bounce text-cream hover:text-light-brown transition-colors"
           aria-label="Scroll down"
         >
