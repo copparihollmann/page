@@ -81,7 +81,7 @@ const Hero = ({ image }: HeroProps) => {
           
           {image && (
             <div className="w-full md:w-1/3 animate-fade-in flex justify-center md:justify-end" style={{ animationDelay: '0.6s' }}>
-              <Avatar className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-light-brown overflow-hidden">
+              <Avatar className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full border-4 border-light-brown overflow-hidden">
                 <AvatarImage 
                   src={image} 
                   alt={name} 
