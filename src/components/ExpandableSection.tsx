@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
@@ -20,9 +20,27 @@ const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   className,
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const sectionId = title.toLowerCase();
+
+  // Listen for expand section events
+  useEffect(() => {
+    const handleExpandSection = (event: CustomEvent) => {
+      if (event.detail.sectionId === sectionId) {
+        setIsOpen(true);
+      }
+    };
+
+    // Add event listener with type assertion
+    document.addEventListener('expandSection', handleExpandSection as EventListener);
+    
+    return () => {
+      // Remove event listener with type assertion
+      document.removeEventListener('expandSection', handleExpandSection as EventListener);
+    };
+  }, [sectionId]);
 
   return (
-    <div className={cn("border-b border-light-brown/30 py-8", className)}>
+    <div id={sectionId} className={cn("border-b border-light-brown/30 py-8", className)}>
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         <CollapsibleTrigger className="flex w-full items-start justify-between text-left">
           <div className="flex items-baseline">

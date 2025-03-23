@@ -10,6 +10,12 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
+// Create a custom event for section expansion
+export const expandSection = (sectionId: string) => {
+  const event = new CustomEvent('expandSection', { detail: { sectionId } });
+  document.dispatchEvent(event);
+};
+
 const Header = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -62,6 +68,15 @@ const Header = () => {
     setIsMenuOpen(false);
     // Re-enable scrolling when nav item is clicked
     document.body.style.overflow = '';
+
+    // Trigger section expansion via custom event
+    expandSection(sectionId);
+    
+    // Smooth scroll to the section
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
   
   // Clean up overflow style on unmount
@@ -71,13 +86,6 @@ const Header = () => {
     };
   }, []);
   
-  // Function to create hash links that work with the router
-  const HashLink = ({ to, children, className, onClick }: { to: string, children: React.ReactNode, className?: string, onClick?: () => void }) => (
-    <a href={to} className={className} onClick={onClick}>
-      {children}
-    </a>
-  );
-  
   return (
     <header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 py-4 px-6 md:px-12 
@@ -85,9 +93,16 @@ const Header = () => {
     >
       <div className="max-w-[1440px] mx-auto flex justify-between items-center">
         <div className="z-10">
-          <HashLink to="#home" className="text-2xl font-display text-cream hover:text-light-brown transition-colors">
+          <a 
+            href="#home" 
+            className="text-2xl font-display text-cream hover:text-light-brown transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('home');
+            }}
+          >
             Agustin<span className="text-light-brown">.</span>
-          </HashLink>
+          </a>
         </div>
         
         {/* Mobile menu button - used with Drawer for better mobile UX */}
@@ -117,13 +132,16 @@ const Header = () => {
                   {sections.map((section) => (
                     <li key={section.id} className="w-full text-center">
                       <DrawerClose asChild>
-                        <HashLink
-                          to={`#${section.id}`}
+                        <a
+                          href={`#${section.id}`}
                           className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
-                          onClick={() => setActiveSection(section.id)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNavClick(section.id);
+                          }}
                         >
                           {section.label}
-                        </HashLink>
+                        </a>
                       </DrawerClose>
                     </li>
                   ))}
@@ -146,13 +164,16 @@ const Header = () => {
           <ul className="flex space-x-1">
             {sections.map((section) => (
               <li key={section.id}>
-                <HashLink
-                  to={`#${section.id}`}
+                <a
+                  href={`#${section.id}`}
                   className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
-                  onClick={() => handleNavClick(section.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(section.id);
+                  }}
                 >
                   {section.label}
-                </HashLink>
+                </a>
               </li>
             ))}
           </ul>
@@ -169,13 +190,16 @@ const Header = () => {
               <ul className="flex flex-col items-center space-y-6">
                 {sections.map((section) => (
                   <li key={section.id} className="w-full text-center">
-                    <HashLink
-                      to={`#${section.id}`}
+                    <a
+                      href={`#${section.id}`}
                       className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
-                      onClick={() => handleNavClick(section.id)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(section.id);
+                      }}
                     >
                       {section.label}
-                    </HashLink>
+                    </a>
                   </li>
                 ))}
               </ul>
