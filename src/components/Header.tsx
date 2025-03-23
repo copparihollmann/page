@@ -135,16 +135,12 @@ const Header = () => {
                   {sections.map((section) => (
                     <li key={section.id} className="w-full text-center">
                       <DrawerClose asChild>
-                        <a
-                          href={`#${section.id}`}
-                          className={`block py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            handleNavClick(section.id);
-                          }}
+                        <button
+                          className={`block w-full py-3 text-2xl ${activeSection === section.id ? 'text-light-brown' : 'text-cream'}`}
+                          onClick={() => handleNavClick(section.id)}
                         >
                           {section.label}
-                        </a>
+                        </button>
                       </DrawerClose>
                     </li>
                   ))}
