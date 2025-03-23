@@ -12,7 +12,9 @@ import {
 
 // Create a custom event for section expansion
 export const expandSection = (sectionId: string) => {
-  const event = new CustomEvent('expandSection', { detail: { sectionId } });
+  // Normalize the section ID to match ExpandableSection's format
+  const normalizedId = sectionId.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
+  const event = new CustomEvent('expandSection', { detail: { sectionId: normalizedId } });
   document.dispatchEvent(event);
 };
 
@@ -27,7 +29,7 @@ const Header = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'projects', label: 'Projects' },
-    { id: 'nonprofit', label: 'Non-Profit' },
+    { id: 'non-profit', label: 'Non-Profit' }, // Fix: ensure this matches the ID format
     { id: 'events', label: 'Events' },
     { id: 'recognitions', label: 'Recognitions' },
   ];
@@ -72,8 +74,9 @@ const Header = () => {
     // Trigger section expansion via custom event
     expandSection(sectionId);
     
-    // Smooth scroll to the section
-    const element = document.getElementById(sectionId);
+    // Use the normalized ID for scrolling
+    const normalizedId = sectionId.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
+    const element = document.getElementById(normalizedId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }

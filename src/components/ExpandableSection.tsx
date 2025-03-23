@@ -20,7 +20,8 @@ const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   className,
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  const sectionId = title.toLowerCase();
+  // Fix: Convert to lowercase and replace spaces with hyphens for consistency
+  const sectionId = title.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
 
   // Listen for expand section events
   useEffect(() => {
